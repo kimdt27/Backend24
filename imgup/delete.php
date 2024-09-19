@@ -1,12 +1,24 @@
 <?php
-require_once ("includes/connection.php");
-$result = mysqli_query($connection, "SELECT * FROM imgs");
-while ($row = mysqli_fetch_array($result)){
-    echo "<b>id:</b>".$row['ID']."<br>";
-    echo "<b>filename:</b>".$row['filename']."<br>";
-    echo "<b>IMG:</b><img src='img/".$row['filename']."' width='150'><br>";
-echo "<a href='delete_pro.php?id=".$row['ID']."'"?>
-onclick="return confirm('are you sure!');"
-<?php echo ">Delete!</a>";
-echo "<hr>";
+require_once("includes/connection.php");
+
+try {
+    $stmt = $connection->prepare("SELECT * FROM imgs");
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($rows as $row) {
+        echo "<b>id:</b> " . htmlspecialchars($row['ID']) . "<br>";
+        echo "<b>filename:</b> " . htmlspecialchars($row['filename']) . "<br>";
+        echo "<b>IMG:</b> <img src='img/" . htmlspecialchars($row['filename']) . "' width='150'><br>";
+        echo "<a href='delete_pro.php?id=" . htmlspecialchars($row['ID']) . "' onclick=\"return confirm('Are you sure?');\">Delete!</a>";
+        echo "<hr>";
+    }
+
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
+
+// Close the PDO connection
+$connection = null;
+
