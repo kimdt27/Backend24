@@ -31,13 +31,13 @@ if (isset($_POST['submit'])){
 
                 try {
                     $dsn = "mysql:host=localhost;dbname=imgup";
-                    $username = "root";
+                    $username = "kim";
                     $password = "123456";
                     $conn = new PDO($dsn, $username, $password);
 
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $sql = "INSERT INTO imgs (filename) VALUES (:filename)";
+                    $sql = "INSERT INTO img (filename) VALUES (:filename)";
                     $stmt = $conn->prepare($sql);
 
                     $stmt->bindParam(':filename', $_FILES['imgfile']['name']);

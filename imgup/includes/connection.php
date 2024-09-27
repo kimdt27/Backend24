@@ -7,7 +7,7 @@ try {
 
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "Connected to MySQL successfully!";
+
 } catch (PDOException $e) {
     die("Failed to connect to MySQL: " . $e->getMessage());
 }

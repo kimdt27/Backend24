@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 
                 try {
                     $dsn = "mysql:host=localhost;dbname=img";
-                    $username = "admin2";
+                    $username = "kim";
                     $password = "123456";
                     $conn = new PDO($dsn, $username, $password);
 
