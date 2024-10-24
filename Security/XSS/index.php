@@ -21,7 +21,7 @@ session_start();
 <script src="keylogging.js"></script>
 <form name="sec" method="post" action="">
     <h2>Here you can write a message!</h2>
-    <b>message:</b> <!-- <input type="text" name="text" /><br />-->
+    <b>message:</b>
     <textarea name="text"></textarea>
     <input name="Submit" type="submit" value="Submit">
 </form>
