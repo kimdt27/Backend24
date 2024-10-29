@@ -13,11 +13,6 @@ if (isset($_GET['newsID'])) {
     echo $_GET['newsID'];
 }
 
-
-//$newsID = isset($_GET['newsID']) ?? $_GET['newsID'];
-//echo $newsID;
-echo $_GET['newsID'];
-echo "WHHHAAAAQ!";
 ?>
 
 
